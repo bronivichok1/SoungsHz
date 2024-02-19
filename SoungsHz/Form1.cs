@@ -23,6 +23,7 @@ namespace SoungsHz
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         public void HzFun(string x)
@@ -38,13 +39,18 @@ namespace SoungsHz
                 Db = Convert.ToString(SumDb);
             }
             else {
-                Db = Db;
+                
             }
             
             textBox2.Text = Db;
 
         }
-        private void Form1_Load(object sender, EventArgs e)
+        public void DbZnah(string x) {
+            Db = x;
+        }
+
+
+    private void Form1_Load(object sender, EventArgs e)
         {
             player = new SoundPlayer();
         }
@@ -80,6 +86,12 @@ namespace SoungsHz
         private void button6_Click(object sender, EventArgs e)
         {
             HzFun("10000");
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            HzFun("15000");
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -163,17 +175,16 @@ namespace SoungsHz
 
         private void button14_Click(object sender, EventArgs e)
         {
+ 
             for (int i=0;i<23; i++) {
-                HzFun(Gamma0[i]);
-                DbFun(0);
 
-                textBox1.Text = Hz;
-                textBox2.Text = Db;
+                DbZnah("0");
+
 
                 Thread.Sleep(1000);
                 try
                 {
-                    string FileLoc = @"Soungs\Gamma0\" + Hz + "Hz_" + Db + "dBFS_1s.wav";
+                    string FileLoc = @"Soungs\Gamma0\" + Gamma0[i] + "Hz_" + Db + "dBFS_1s.wav";
                     player.SoundLocation = FileLoc;
                     player.Play();
                 }
@@ -183,6 +194,7 @@ namespace SoungsHz
                 }
                 
             }
+ 
 
         }
 
@@ -191,15 +203,15 @@ namespace SoungsHz
            
 
             for (int i = 0; i < 23; i++)
-            { 
-                HzFun(Gamma0[i]);
-                textBox1.Text = Hz;
-                textBox2.Text = Db;
+            {   
+
+                DbZnah("-30");
+
 
                 Thread.Sleep(1000);
                 try
                 {
-                    string FileLoc = @"Soungs\Gamma-30\" + Hz + "Hz_" + Db + "dBFS_1s.wav";
+                    string FileLoc = @"Soungs\Gamma-30\" + Gamma0[i] + "Hz_" + Db + "dBFS_1s.wav";
                     player.SoundLocation = FileLoc;
                     player.Play();
                 }
@@ -209,6 +221,8 @@ namespace SoungsHz
                 }
 
             }
+            
         }
+
     }
 }
