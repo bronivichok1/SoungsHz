@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+
 
 namespace SoungsHz
 {
@@ -16,7 +18,10 @@ namespace SoungsHz
         string filePath = "ZeroLvl.txt";
 
         int DbZero = 0;
-        
+        string Hz = "5000";
+        string Db = "0";
+        SoundPlayer player = null;
+
         public void ZeroLvl(int x) 
         {
             // открываем файл
@@ -55,13 +60,7 @@ namespace SoungsHz
 
 
         }
-        public string Data
-        {
-            get
-            {
-                return Convert.ToString(DbZero);
-            }
-        }
+
         public Form2()
         {
             InitializeComponent();
@@ -71,6 +70,9 @@ namespace SoungsHz
 
         private void Form2_Load(object sender, EventArgs e)
         {
+  
+                player = new SoundPlayer();
+            
 
         }
 
@@ -120,6 +122,36 @@ namespace SoungsHz
                 }
             }
             this.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Db=Convert.ToString(DbZero);
+            try
+            {
+                string FileLoc = @"Soungs\" + Hz + "Hz_" + Db + "dBFS_5s.wav";
+                player.SoundLocation = FileLoc;
+                player.Play();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            player.Stop();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            textBox2.Text = Hz;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
