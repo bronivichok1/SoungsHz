@@ -1,19 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.Drawing.Drawing2D;
 using System.Media;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
 
 namespace SoungsHz
 {
+
+
     public partial class Form1 : Form
     {
+        public static string GlobalVar="0";
+        public static string GlobalVarForText = "0";
+        public string ZeroLvlDb;
+        public int ZeroLvlWork;
+
+        string filePath = "ZeroLvl.txt";
+
+        string ForTextDb="0";
+
 
         SoundPlayer player = null;
         string fileName = string.Empty;
@@ -23,7 +31,7 @@ namespace SoungsHz
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
         public void HzFun(string x)
@@ -33,20 +41,35 @@ namespace SoungsHz
         }
         public void DbFun(int x=0) 
         {
-            int SumDb = Convert.ToInt32(Db) + x;
-            if (SumDb <= 0 && SumDb >= -144)
+
+            using (StreamReader stream = new StreamReader(filePath))
             {
-                Db = Convert.ToString(SumDb);
+                while (stream.Peek() >= 0)
+                {
+                    // читаем строку из файла
+                    string str = stream.ReadLine();
+
+                    // разбиваем строку по словами
+                    string[] words = str.Split(' ');
+
+                    // конвертируем 1-ое слово в число
+                    ZeroLvlWork = Int32.Parse(words[0]);
+                    ZeroLvlDb =words[0];
+
+                }
+            }
+
+            int SumDb = Convert.ToInt32(Db) + x-ZeroLvlWork;
+            if ((SumDb <= 0-ZeroLvlWork) && (SumDb >= -144- ZeroLvlWork))
+            {
+                Db = Convert.ToString(SumDb+ZeroLvlWork);
+                ForTextDb = Convert.ToString(SumDb);
             }
             else {
                 
             }
-            
-            textBox2.Text = Db;
+            textBox2.Text = ForTextDb;
 
-        }
-        public void DbZnah(string x) {
-            Db = x;
         }
 
 
@@ -106,16 +129,22 @@ namespace SoungsHz
 
         private void button8_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string FileLoc= @"Soungs\" + Hz+"Hz_" + Db + "dBFS_5s.wav";
-                player.SoundLocation = FileLoc;
-                player.Play();
+          
+
+                try
+                {
+                    string FileLoc = @"Soungs\" + Hz + "Hz_" + Db + "dBFS_5s.wav";
+                    player.SoundLocation = FileLoc;
+                    player.Play();
+                    Thread.Sleep(2000);// Звук идёт 2 секунды
+
+                    player.Stop();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -123,7 +152,8 @@ namespace SoungsHz
             player.Stop();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+       /*Выбор вручную
+        * private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             OpenFileDialog oFD = new OpenFileDialog()
                 {
@@ -135,7 +165,7 @@ namespace SoungsHz
                 {
                 fileName = oFD.FileName;
                 }
-        }
+        }*/
 
 
 
@@ -151,6 +181,7 @@ namespace SoungsHz
         private void button12_Click(object sender, EventArgs e)
         {
             DbFun(1);
+
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -173,45 +204,44 @@ namespace SoungsHz
 
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        public void button14_Click(object sender, EventArgs e) //Гамма 0
         {
- 
-            for (int i=0;i<23; i++) {
-
-                DbZnah("0");
-
-
-                Thread.Sleep(1000);
-                try
+            
+                for (int i = 0; i < 23; i++)
                 {
-                    string FileLoc = @"Soungs\Gamma0\" + Gamma0[i] + "Hz_" + Db + "dBFS_1s.wav";
-                    player.SoundLocation = FileLoc;
-                    player.Play();
+
+
+                    Thread.Sleep(1000);
+                    try
+                    {
+                        string FileLoc = @"Soungs\Gamma0\" + Gamma0[i] + "Hz_" + "0" + "dBFS_1s.wav";
+                        player.SoundLocation = FileLoc;
+                        player.Play();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                
-            }
+            
  
 
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        private void button15_Click(object sender, EventArgs e)//Гамма -30
         {
            
 
             for (int i = 0; i < 23; i++)
             {   
 
-                DbZnah("-30");
 
 
                 Thread.Sleep(1000);
                 try
                 {
-                    string FileLoc = @"Soungs\Gamma-30\" + Gamma0[i] + "Hz_" + Db + "dBFS_1s.wav";
+                    string FileLoc = @"Soungs\Gamma-30\" + Gamma0[i] + "Hz_" + "-30" + "dBFS_1s.wav";
                     player.SoundLocation = FileLoc;
                     player.Play();
                 }
@@ -224,5 +254,10 @@ namespace SoungsHz
             
         }
 
+        private void Calibration_Click(object sender, EventArgs e)
+        {
+            Form2 F = new Form2();
+            F.Show();
+        }
     }
 }

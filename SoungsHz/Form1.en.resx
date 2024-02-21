@@ -209,15 +209,6 @@
   <data name="button9.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 70</value>
   </data>
-  <data name="файлToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 18</value>
-  </data>
-  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 3, 0, 3</value>
-  </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1375, 24</value>
-  </data>
   <data name="button10.Location" type="System.Drawing.Point, System.Drawing">
     <value>261, 265</value>
   </data>

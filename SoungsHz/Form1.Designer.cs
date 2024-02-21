@@ -40,8 +40,6 @@ namespace SoungsHz
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
@@ -52,7 +50,7 @@ namespace SoungsHz
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.Calibration = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -106,6 +104,9 @@ namespace SoungsHz
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
             resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -124,19 +125,6 @@ namespace SoungsHz
             this.button9.Name = "button9";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // menuStrip1
-            // 
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem});
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // файлToolStripMenuItem
-            // 
-            resources.ApplyResources(this.файлToolStripMenuItem, "файлToolStripMenuItem");
-            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             // 
             // button10
             // 
@@ -168,6 +156,9 @@ namespace SoungsHz
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Cursor = System.Windows.Forms.Cursors.Default;
             resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -206,10 +197,19 @@ namespace SoungsHz
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
+            // Calibration
+            // 
+            resources.ApplyResources(this.Calibration, "Calibration");
+            this.Calibration.Name = "Calibration";
+            this.Calibration.UseVisualStyleBackColor = true;
+            this.Calibration.Click += new System.EventHandler(this.Calibration_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.Calibration);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
@@ -230,15 +230,11 @@ namespace SoungsHz
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.menuStrip1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DoubleBuffered = true;
             this.HelpButton = true;
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,8 +252,6 @@ namespace SoungsHz
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
@@ -268,6 +262,7 @@ namespace SoungsHz
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button Calibration;
     }
 }
 
