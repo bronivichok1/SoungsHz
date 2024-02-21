@@ -146,7 +146,7 @@ namespace SoungsHz
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            textBox2.Text = Hz;
+
         }
 
         private void label2_Click(object sender, EventArgs e)
