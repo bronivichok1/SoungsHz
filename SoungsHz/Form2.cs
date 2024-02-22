@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
-
+using System.Threading;
 
 namespace SoungsHz
 {
@@ -132,6 +132,9 @@ namespace SoungsHz
                 string FileLoc = @"Soungs\" + Hz + "Hz_" + Db + "dBFS_5s.wav";
                 player.SoundLocation = FileLoc;
                 player.Play();
+                Thread.Sleep(2000);// Звук идёт 2 секунды
+
+                player.Stop();
             }
             catch (Exception ex)
             {

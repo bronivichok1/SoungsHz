@@ -400,10 +400,10 @@
     <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
   <data name="button10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>207, 201</value>
+    <value>207, 247</value>
   </data>
   <data name="button10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 28</value>
+    <value>100, 45</value>
   </data>
   <data name="button10.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -427,10 +427,10 @@
     <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
   <data name="button11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>207, 236</value>
+    <value>207, 195</value>
   </data>
   <data name="button11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 28</value>
+    <value>100, 42</value>
   </data>
   <data name="button11.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -454,10 +454,10 @@
     <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
   <data name="button12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>298, 201</value>
+    <value>313, 196</value>
   </data>
   <data name="button12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 28</value>
+    <value>101, 42</value>
   </data>
   <data name="button12.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -481,10 +481,10 @@
     <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
   <data name="button13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>298, 236</value>
+    <value>313, 246</value>
   </data>
   <data name="button13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 28</value>
+    <value>101, 46</value>
   </data>
   <data name="button13.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -508,7 +508,7 @@
     <value>Microsoft Sans Serif, 24pt</value>
   </data>
   <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 244</value>
+    <value>34, 247</value>
   </data>
   <data name="textBox2.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
