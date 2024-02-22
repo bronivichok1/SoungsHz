@@ -400,7 +400,7 @@
     <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
   <data name="button10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>207, 247</value>
+    <value>207, 196</value>
   </data>
   <data name="button10.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 45</value>
@@ -427,7 +427,7 @@
     <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
   <data name="button11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>207, 195</value>
+    <value>207, 250</value>
   </data>
   <data name="button11.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 42</value>

@@ -43,6 +43,23 @@ namespace SoungsHz
             textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
+            // textBox2
+            // 
+            textBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            textBox2.Cursor = System.Windows.Forms.Cursors.Default;
+            textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            textBox2.ImeMode = System.Windows.Forms.ImeMode.Off;
+            textBox2.Location = new System.Drawing.Point(163, 69);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new System.Drawing.Size(184, 47);
+            textBox2.TabIndex = 9;
+            textBox2.Text = "5000";
+            textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
             // Apply
             // 
             this.Apply.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -145,23 +162,6 @@ namespace SoungsHz
             this.button6.Text = "Stop";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // textBox2
-            // 
-            textBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            textBox2.Cursor = System.Windows.Forms.Cursors.Default;
-            textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            textBox2.ImeMode = System.Windows.Forms.ImeMode.Off;
-            textBox2.Location = new System.Drawing.Point(163, 69);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new System.Drawing.Size(184, 47);
-            textBox2.TabIndex = 9;
-            textBox2.Text = "5000";
-            textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 

@@ -28,6 +28,7 @@ namespace SoungsHz
 
         string ForTextDb="0";
 
+        bool isPlaying = true;
 
         SoundPlayer player = null;
         string fileName = string.Empty;
@@ -81,6 +82,8 @@ namespace SoungsHz
     private void Form1_Load(object sender, EventArgs e)
         {
             player = new SoundPlayer();
+            HzFun("50");
+            DbFun(0);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -141,8 +144,8 @@ namespace SoungsHz
                     string FileLoc = @"Soungs\" + Hz + "Hz_" + Db + "dBFS_5s.wav";
                     player.SoundLocation = FileLoc;
                     player.Play();
-                await Task.Delay(1000);
-                player.Stop();
+                    await Task.Delay(1000);
+                    player.Stop();
             }
                 catch (Exception ex)
                 {
@@ -151,9 +154,11 @@ namespace SoungsHz
             
         }
 
-        private void button9_Click(object sender, EventArgs e)
+       async private void button9_Click(object sender, EventArgs e)
         {
+            isPlaying = false;
             player.Stop();
+            
         }
 
        /*Выбор вручную
@@ -210,19 +215,22 @@ namespace SoungsHz
 
        async public void button14_Click(object sender, EventArgs e) //Гамма 0
         {
-            
-                for (int i = 0; i < 23; i++)
+            isPlaying = true;
+            for (int i = 0; i < 23 && isPlaying; i++)
                 {
 
 
-                     await Task.Delay(1000);
+                     
                 try
                     {
                         string FileLoc = @"Soungs\Gamma0\" + Gamma0[i] + "Hz_" + "0" + "dBFS_1s.wav";
                         player.SoundLocation = FileLoc;
                         player.Play();
-                    }
-                    catch (Exception ex)
+                        await Task.Delay(1000);
+                        player.Stop();
+    
+                }
+                catch (Exception ex)
                     {
                         MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -235,19 +243,18 @@ namespace SoungsHz
 
        async private void button15_Click(object sender, EventArgs e)//Гамма -30
         {
-           
 
-            for (int i = 0; i < 23; i++)
+            isPlaying = true;
+            for (int i = 0; i < 23 && isPlaying; i++)
             {
 
-
-
-                await Task.Delay(1000);
                 try
                 {
                     string FileLoc = @"Soungs\Gamma-30\" + Gamma0[i] + "Hz_" + "-30" + "dBFS_1s.wav";
                     player.SoundLocation = FileLoc;
                     player.Play();
+                    await Task.Delay(1000);
+                    player.Stop();
                 }
                 catch (Exception ex)
                 {

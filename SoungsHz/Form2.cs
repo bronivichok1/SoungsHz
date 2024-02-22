@@ -64,7 +64,7 @@ namespace SoungsHz
         public Form2()
         {
             InitializeComponent();
-            
+            ZeroLvl(0);
 
         }
 
@@ -153,6 +153,11 @@ namespace SoungsHz
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
         {
 
         }
