@@ -124,7 +124,7 @@ namespace SoungsHz
             this.Close();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+       async private void button1_Click_1(object sender, EventArgs e)
         {
             Db=Convert.ToString(DbZero);
             try
@@ -132,7 +132,7 @@ namespace SoungsHz
                 string FileLoc = @"Soungs\" + Hz + "Hz_" + Db + "dBFS_5s.wav";
                 player.SoundLocation = FileLoc;
                 player.Play();
-                Thread.Sleep(2000);// Звук идёт 2 секунды
+                await Task.Delay(2000);// Звук идёт 2 секунды
 
                 player.Stop();
             }

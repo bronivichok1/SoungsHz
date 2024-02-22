@@ -11,7 +11,7 @@ using System.Media;
 using System.Threading;
 using System.Windows.Forms;
 using System.IO;
-
+using System.Threading.Tasks;
 
 namespace SoungsHz
 {
@@ -39,7 +39,6 @@ namespace SoungsHz
             InitializeComponent();
 
         }
-
         public void HzFun(string x)
         {
             Hz = x;
@@ -133,7 +132,7 @@ namespace SoungsHz
 
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        async private void button8_Click(object sender, EventArgs e)
         {
           
 
@@ -142,9 +141,8 @@ namespace SoungsHz
                     string FileLoc = @"Soungs\" + Hz + "Hz_" + Db + "dBFS_5s.wav";
                     player.SoundLocation = FileLoc;
                     player.Play();
-                    Thread.Sleep(2000);// Звук идёт 2 секунды
-
-                    player.Stop();
+                await Task.Delay(1000);
+                player.Stop();
             }
                 catch (Exception ex)
                 {
@@ -210,15 +208,15 @@ namespace SoungsHz
 
         }
 
-        public void button14_Click(object sender, EventArgs e) //Гамма 0
+       async public void button14_Click(object sender, EventArgs e) //Гамма 0
         {
             
                 for (int i = 0; i < 23; i++)
                 {
 
 
-                    Thread.Sleep(1000);
-                    try
+                     await Task.Delay(1000);
+                try
                     {
                         string FileLoc = @"Soungs\Gamma0\" + Gamma0[i] + "Hz_" + "0" + "dBFS_1s.wav";
                         player.SoundLocation = FileLoc;
@@ -235,16 +233,16 @@ namespace SoungsHz
 
         }
 
-        private void button15_Click(object sender, EventArgs e)//Гамма -30
+       async private void button15_Click(object sender, EventArgs e)//Гамма -30
         {
            
 
             for (int i = 0; i < 23; i++)
-            {   
+            {
 
 
 
-                Thread.Sleep(1000);
+                await Task.Delay(1000);
                 try
                 {
                     string FileLoc = @"Soungs\Gamma-30\" + Gamma0[i] + "Hz_" + "-30" + "dBFS_1s.wav";
